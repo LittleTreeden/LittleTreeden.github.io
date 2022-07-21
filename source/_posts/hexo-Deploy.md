@@ -4,7 +4,6 @@ date: 2022-07-21 23:16:27
 tags:
 ---
 # 使用Travis CI 实现 Hexo 博客自动部署
-<!-- {% asset_img image-20220721131809145.png 这是一个新的博客的图片的说明 %} -->
 ## 1. 下载工具[Node.js](https://nodejs.org/en/) 和 [Git](https://git-scm.com/)
 
 -   下载完成后使用 `node -v` 检测是node否安装完成
@@ -174,3 +173,40 @@ hexo 官网 https://hexo.io/zh-cn/
 参考 https://michael728.github.io/2019/06/16/cicd-hexo-blog-travis/
 
 参考 https://godweiyang.com/2018/04/13/hexo-blog/#toc-heading-8
+
+## 资源引用相关配置
+1. 在 `_comfig.yml` 中修改此项可以在 `hexo new post [articleTitle]` 时新建一个图片目录，可以将markdown引用的图片放置此文档目录。
+
+```ymal
+post_asset_folder: true
+```
+
+使用时
+```
+{% asset_img [imgaeName] 这是一个新的博客的图片的说明 %}
+
+直接替换imageName为图片名而不需要在前面加目录名。
+```
+
+2. 如果想使用markdown语法，需要在 `_config.yml` 中加入配置
+
+```
+#image markdown load
+marked:
+  prependRoot: true
+  postAsset: true
+```
+
+使用时
+```
+![imgaeDescription](imgaeName)
+
+注意这里也不加目录名
+```
+
+如图
+![imgaeDescription](test.png)
+
+3. 图片放在source/images中，然后用markdown语法引用，注意路径
+如图
+![imgaeDescription](images/test.png)

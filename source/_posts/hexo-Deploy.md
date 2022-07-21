@@ -1,6 +1,6 @@
 ---
 title: hexo-Deploy
-date: 2022-07-21 23:02:37
+date: 2022-07-21 23:16:27
 tags:
 ---
 # 使用Travis CI 实现 Hexo 博客自动部署
@@ -9,27 +9,27 @@ tags:
 
 -   下载完成后使用 `node -v` 检测是node否安装完成
 
-![image-20220721131809145](hexo.assets/image-20220721131809145.png)
+![image-20220721131809145](hexo-Deploy/image-20220721131809145.png)
 
 -   `git --version` 检测git是否安装完成
 
-![image-20220721132031956](hexo.assets/image-20220721132031956.png)
+![image-20220721132031956](hexo-Deploy/image-20220721132031956.png)
 
 ## 2.新建Git仓库 `username.github.io`
 
 -   在右上角点击新建仓库。
 
-![image-20220721132450874](hexo.assets/image-20220721132450874.png)
+![image-20220721132450874](hexo-Deploy/image-20220721132450874.png)
 
 -   仓库名使用 `username.github.io`，点击创建。
 
 >   <font color = "#FF6347">username</font> 为 github 账户名
 
-![image-20220721132729556](hexo.assets/image-20220721132729556.png)
+![image-20220721132729556](hexo-Deploy/image-20220721132729556.png)
 
 ## 3.将仓库clone到本地
 
-![image-20220721191631507](hexo.assets/image-20220721191631507.png)
+![image-20220721191631507](hexo-Deploy/image-20220721191631507.png)
 
 ## 4. 下载并安装hexo
 
@@ -37,35 +37,35 @@ tags:
 
 1.   安装hexo脚手架 `npm i hexo-cli -g`
 
-![image-20220721191925191](hexo.assets/image-20220721191925191.png)
+![image-20220721191925191](hexo-Deploy/image-20220721191925191.png)
 
 检查hexo是否安装完成 `hexo -v`
 
-![image-20220721192511927](hexo.assets/image-20220721192511927.png)
+![image-20220721192511927](hexo-Deploy/image-20220721192511927.png)
 
 2.   新建分支 `hexo` 
 
-![image-20220721192757289](hexo.assets/image-20220721192757289.png)
+![image-20220721192757289](hexo-Deploy/image-20220721192757289.png)
 
 3.   新建一个空文件夹，并初始化hexo `hexo init`
 
-![image-20220721192955232](hexo.assets/image-20220721192955232.png)
+![image-20220721192955232](hexo-Deploy/image-20220721192955232.png)
 
 4.   使用npm安装依赖库`npm install`
 
-![image-20220721193036774](hexo.assets/image-20220721193036774.png)
+![image-20220721193036774](hexo-Deploy/image-20220721193036774.png)
 
 5.   使用hexo生成静态网页 `hexo g`
 
-![image-20220721193116293](hexo.assets/image-20220721193116293.png)
+![image-20220721193116293](hexo-Deploy/image-20220721193116293.png)
 
 6.   运行hexo `hexo s`
 
-![image-20220721193204043](hexo.assets/image-20220721193204043.png)
+![image-20220721193204043](hexo-Deploy/image-20220721193204043.png)
 
 ​	打开 http://localhost:4000/ 验证
 
-![image-20220721193214091](hexo.assets/image-20220721193214091.png)
+![image-20220721193214091](hexo-Deploy/image-20220721193214091.png)
 
 以上为hexo本地部署
 
@@ -77,27 +77,27 @@ https://github.com/settings/tokens
 
 只选仓库权限即可
 
-![image-20220721195004432](hexo.assets/image-20220721195004432.png)
+![image-20220721195004432](hexo-Deploy/image-20220721195004432.png)
 
 2.   复制token `只会显示一次，记得复制` 
 
-     ![image-20220721195127515](hexo.assets/image-20220721195127515.png)
+     ![image-20220721195127515](hexo-Deploy/image-20220721195127515.png)
 
 4.   进入[Travis](https://www.travis-ci.com/account/repositories) ，按照提示开启，新注册用户需要选择Plan，需要绑定信用卡。
 
-![image-20220721195600438](hexo.assets/image-20220721195600438.png)
+![image-20220721195600438](hexo-Deploy/image-20220721195600438.png)
 
 5.   对我们的设置相关配置
 
-     ![image-20220721200038829](hexo.assets/image-20220721200038829.png)
+     ![image-20220721200038829](hexo-Deploy/image-20220721200038829.png)
 
 6.   添加token环境变量，将github生成的token填入，变量名为`GH_TOKEN`
 
-![image-20220721200850986](hexo.assets/image-20220721200850986.png)
+![image-20220721200850986](hexo-Deploy/image-20220721200850986.png)
 
 7.将本地仓库切换至`hexo`，将刚才的博客源码添加到我们的仓库中，并删除`public` 和 `node_modules`
 
-![image-20220721201133162](hexo.assets/image-20220721201133162.png)
+![image-20220721201133162](hexo-Deploy/image-20220721201133162.png)
 
 8.   添加`.travis.yml`文件，并修改相应配置
 

@@ -188,6 +188,9 @@ post_asset_folder: true
 直接替换imageName为图片名而不需要在前面加目录名。
 ```
 
+如图
+{% asset_img test-assetImage.png 这是一个新的博客的图片的说明 %}
+
 2. 如果想使用markdown语法，需要在 `_config.yml` 中加入配置
 
 ```

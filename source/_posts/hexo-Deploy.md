@@ -4,7 +4,7 @@ date: 2022-07-21 23:16:27
 tags:
 ---
 # 使用Travis CI 实现 Hexo 博客自动部署
-{% asset_img image-20220721131809145.png 这是一个新的博客的图片的说明 %}
+<!-- {% asset_img image-20220721131809145.png 这是一个新的博客的图片的说明 %} -->
 ## 1. 下载工具[Node.js](https://nodejs.org/en/) 和 [Git](https://git-scm.com/)
 
 -   下载完成后使用 `node -v` 检测是node否安装完成

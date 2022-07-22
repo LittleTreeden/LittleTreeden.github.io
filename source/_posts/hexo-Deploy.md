@@ -134,6 +134,7 @@ script:
   - hexo generate
 
 before_script:
+  # user.name 和 user.email 改成自己的
   - git config user.name "lishuyuan"
   - git config user.email "1329838725@qq.com"
   # 替换同目录下的_config.yml文件中github_token字符串为travis后台刚才配置的变量，注>意此处sed命令用了双引号。单引号无效！
@@ -144,20 +145,12 @@ after_script:
   - cat ./_config.yml
   - hexo deploy
 # End: Build LifeCycle
-
-# deploy:
-#   # provider: pages
-#   skip-cleanup: true
-#   github-token: $GH_TOKEN
-#   keep-history: true
-#   on:
-#     branch: main
-#   local-dir: public
 ```
 
-9.   修改`_config.yml` 的deploy节点
+9.   修改`_config.yml` 的deploy节
 
 ```yaml
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
@@ -167,7 +160,13 @@ deploy:
   branch: main
 ```
 
-10.   执行命令 `git push origin hexo` 提交代码
+10. 修改`_config.yml`将URL重新设定为自己的仓库路径
+
+```yaml
+url: 'https://username.github.io'
+```
+
+11.   执行命令 `git push origin hexo` 提交代码
 
 ## 相关链接
 

@@ -5,7 +5,11 @@ tags:
 ---
 # 使用Travis CI 实现 Hexo 博客自动部署
 
-# TEST2022年7月22日11:00:02
+## 演示地址
+https://littletreeden.github.io/
+
+## 参考仓库
+https://github.com/LittleTreeden/LittleTreeden.github.io
 
 ## 1. 下载工具[Node.js](https://nodejs.org/en/) 和 [Git](https://git-scm.com/)
 
@@ -37,27 +41,27 @@ tags:
 
 
 
-1.   安装hexo脚手架 `npm i hexo-cli -g`
+1.   安装hexo脚手架 `npm i hexo-cli -g`。
 
 ![image-20220721191925191](image-20220721191925191.png)
 
-检查hexo是否安装完成 `hexo -v`
+检查hexo是否安装完成 `hexo -v`。
 
 ![image-20220721192511927](image-20220721192511927.png)
 
-2.   新建分支 `hexo` 
+2.   新建分支 `hexo` 。
 
 ![image-20220721192757289](image-20220721192757289.png)
 
-3.   新建一个空文件夹，并初始化hexo `hexo init`
+3.   新建一个空文件夹，并初始化hexo `hexo init`。
 
 ![image-20220721192955232](image-20220721192955232.png)
 
-4.   使用npm安装依赖库`npm install`
+4.   使用npm安装依赖库`npm install`。
 
 ![image-20220721193036774](image-20220721193036774.png)
 
-5.   使用hexo生成静态网页 `hexo g`
+5.   使用hexo生成静态网页 `hexo g`。
 
 ![image-20220721193116293](image-20220721193116293.png)
 
@@ -65,15 +69,15 @@ tags:
 
 ![image-20220721193204043](image-20220721193204043.png)
 
-​	打开 http://localhost:4000/ 验证
+​	打开 http://localhost:4000/ 验证。
 
 ![image-20220721193214091](image-20220721193214091.png)
 
-以上为hexo本地部署
+以上为hexo本地部署。
 
 ## 5.Travis配置
 
-1.   生成GitHub验证TOKEN
+1.   生成GitHub验证TOKEN。
 
 https://github.com/settings/tokens
 
@@ -81,7 +85,7 @@ https://github.com/settings/tokens
 
 ![image-20220721195004432](image-20220721195004432.png)
 
-2.   复制token `只会显示一次，记得复制` 
+2.   复制token `只会显示一次，记得复制` 。在第6步会用到，记得保存。
 
      ![image-20220721195127515](image-20220721195127515.png)
 
@@ -89,19 +93,19 @@ https://github.com/settings/tokens
 
 ![image-20220721195600438](image-20220721195600438.png)
 
-5.   对我们的设置相关配置
+5.   对我们的仓库设置相关配置。
 
      ![image-20220721200038829](image-20220721200038829.png)
 
-6.   添加token环境变量，将github生成的token填入，变量名为`GH_TOKEN`
+6.   添加token环境变量，将github生成的token填入，变量名为`GH_TOKEN`。
 
 ![image-20220721200850986](image-20220721200850986.png)
 
-7.将本地仓库切换至`hexo`，将刚才的博客源码添加到我们的仓库中，并删除`public` 和 `node_modules`
+7.将本地仓库切换至`hexo`，将刚才的博客源码添加到我们的仓库中，并删除`public` 和 `node_modules`（生成的静态文件和依赖库文件）。
 
 ![image-20220721201133162](image-20220721201133162.png)
 
-8.   添加`.travis.yml`文件，并修改相应配置
+8.   添加`.travis.yml`文件，并修改相应配置（可直接复制，用户名和email需要修改）。
 
 ```yaml
 # 指定语言环境
@@ -147,7 +151,7 @@ after_script:
 # End: Build LifeCycle
 ```
 
-9.   修改`_config.yml` 的deploy节
+9.   修改`_config.yml` 的deploy节。
 
 ```yaml
 
@@ -160,13 +164,13 @@ deploy:
   branch: main
 ```
 
-10. 修改`_config.yml`将URL重新设定为自己的仓库路径
+10. 修改`_config.yml`将URL重新设定为自己的仓库路径。
 
 ```yaml
 url: 'https://username.github.io'
 ```
 
-11.   执行命令 `git push origin hexo` 提交代码
+11.   执行命令 `git push origin hexo` 提交代码。
 
 ## 相关链接
 
